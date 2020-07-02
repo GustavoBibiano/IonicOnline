@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ImcService } from '../calculo'
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+    peso : number;
+    altura : number;
+    resultado : string;
 
-  constructor() {}
+  constructor(private imc :ImcService) {}
+   ngOnInit() {
+  }
+  
+  calculaImc(){
+    this.resultado = this.imc.calcular(this.peso, this.altura);
+  }
+
 
 }
